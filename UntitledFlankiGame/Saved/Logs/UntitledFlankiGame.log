@@ -1489,3 +1489,18 @@ LogConfig: CVar [[QualityLevelMapping:high]] deferred - dummy variable created
 
 [2024.01.22-12.33.09:186][  1]Running Python start-up script 'D:/EpicLibrary/UE_5.3/Engine/Plugins/Animation/ControlRig/Content/Python/init_unreal.py': 0.044731 secs
 [2024.01.22-12.33.09:291][  1]LogD3D12RHI: Cannot end block when stack is empty
+[2024.01.22-12.33.31:208][484]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.01.22-12.33.56:428][781]LogTexture: Display: Building textures: /Engine/Transient.Texture2D_6 (G8, 128x128 x1x1x1) (Required Memory Estimate: 0.432286 MB), EncodeSpeed: Fast
+[2024.01.22-12.33.56:780][781]LogViewport: Scene viewport resized to 1139x905, mode Windowed.
+[2024.01.22-12.33.57:987][782]LogAutomationController: Ignoring very large delta of 2.11 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.01.22-12.34.07:438][893]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/StarterContent/Architecture/Floor_400x400.Floor_400x400
+[2024.01.22-12.34.07:439][893]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/StarterContent/Architecture/Floor_400x400.Floor_400x400
+[2024.01.22-12.34.07:443][893]LogActorFactory: Actor Factory spawned StaticMesh /Game/StarterContent/Architecture/Floor_400x400.Floor_400x400 as actor: StaticMeshActor /Temp/Untitled_1.Untitled_1:PersistentLevel.StaticMeshActor_0
+[2024.01.22-12.34.08:060][906]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/StarterContent/Architecture/Floor_400x400.Floor_400x400
+[2024.01.22-12.34.08:060][906]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/StarterContent/Architecture/Floor_400x400.Floor_400x400
+[2024.01.22-12.34.08:066][906]LogActorFactory: Actor Factory spawned StaticMesh /Game/StarterContent/Architecture/Floor_400x400.Floor_400x400 as actor: StaticMeshActor /Temp/Untitled_1.Untitled_1:PersistentLevel.StaticMeshActor_UAID_5405DB6E192100D201_1617166919
+[2024.01.22-12.34.19:894][316]LogSlate: Window 'Save Level As' being destroyed
+[2024.01.22-12.34.44:995][726]LogSlate: Window 'Plugins' being destroyed
+[2024.01.22-12.34.45:002][726]LogSlate: Window 'Plugins' being destroyed
+[2024.01.22-12.34.45:003][726]LogDirectoryWatcher: A directory notification for '../../../Engine/Plugins/' was aborted.
+[2024.01.22-12.34.55:676][874]LogDerivedDataCache: C:/Users/barte/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:03.147 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 2464 files in 3438 folders with total size 59 MiB.
