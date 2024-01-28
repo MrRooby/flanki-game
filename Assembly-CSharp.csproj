@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7A384214-AB37-DE51-01C8-146B7F200971}</ProjectGuid>
+    <ProjectGuid>{9BC16BAF-C2C7-5925-1F04-BD184D8EB312}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\kijScript.cs" />
+    <Compile Include="Assets\ArcScript.cs" />
     <Compile Include="Assets\butelkaScript.cs" />
   </ItemGroup>
   <ItemGroup>
