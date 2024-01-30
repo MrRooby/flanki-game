@@ -28,28 +28,57 @@ public class kijScript : MonoBehaviour
     public float startY = 5;
     public float startZ = -12;
 
+    private Quaternion originalRotation;
+
 
     void Start()
     {
+        originalRotation = transform.rotation;
         kijRigBod.position.Set(startX, startY, startZ);
+        gravity(false);
     }
 
+    // Zdecyduj czy wy³¹czaæ gravitacjê czy usypiaæ
 
     void Update()
     {
         drawArc();
+        float rotationX = (float)kijRigBod.rotation.eulerAngles.x;
+        float rotationZ = Mathf.Atan( rotationX * Mathf.Deg2Rad );
+        float rotationY = -Mathf.Tan(rotationX * Mathf.Deg2Rad);
+
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {  
-            kijRigBod.velocity = new Vector3(0, 0, 1) * kijThrowStr;   
+        {
+            gravity(true);
+            if (kijRigBod.rotation.x == 0)
+                kijRigBod.velocity = new Vector3(0, rotationY, 1) * kijThrowStr;
+            else
+            {
+                kijRigBod.velocity = new Vector3(0, rotationY, rotationZ) * kijThrowStr;
+                //kijRigBod.velocity = new Vector3(0, 0, 1) * kijThrowStr;
+                print("Rotation y: " + rotationY);
+                print("Rotation z: " + rotationZ);
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
+            kijRigBod.Sleep();
+            gravity(false);
             kijRigBod.position = new Vector3(2, 3, -21f);
+            transform.rotation = originalRotation;
         }
     }
 
+    private void gravity(bool isGrav)
+    {
+        if (isGrav)
+            Physics.gravity = new Vector3(0, -9.8f, 0);
+        else if (!isGrav)
+            Physics.gravity = new Vector3(0, 0, 0);
+    }
 
     private void drawArc()
     {
@@ -57,7 +86,18 @@ public class kijScript : MonoBehaviour
 
         kijThrowArc.positionCount = Mathf.CeilToInt( resolution/timeBetweenPoints ) + 1;
         Vector3 startPosition = kijRigBod.position;
-        Vector3 startVelocity = kijThrowStr * kijRigBod.transform.forward / kijRigBod.mass;
+        Vector3 startVelocity;
+
+        // Pobaw siê z globalnymi zmiennymi bo jesteœ takim porz¹dnym programist¹
+        float rotationX = (float)kijRigBod.rotation.eulerAngles.x;
+        float rotationZ = Mathf.Atan(rotationX * Mathf.Deg2Rad);
+        float rotationY = -Mathf.Tan(rotationX * Mathf.Deg2Rad);
+
+        if (kijRigBod.rotation.x == 0)
+            startVelocity = new Vector3(0, rotationY, 1) * kijThrowStr;
+        else
+            startVelocity = new Vector3(0, rotationY, rotationZ) * kijThrowStr;
+
         int i = 0;
         kijThrowArc.SetPosition(i, startPosition);
 
@@ -65,7 +105,7 @@ public class kijScript : MonoBehaviour
         {
             i++;
             Vector3 point = startPosition + time * startVelocity;
-            point.y = startPosition.y + startVelocity.y * time + (Physics.gravity.y / 2f * time * time);
+            point.y = startPosition.y + startVelocity.y * time + (-9.8f / 2f * time * time);
 
             kijThrowArc.SetPosition(i, point);
         }
